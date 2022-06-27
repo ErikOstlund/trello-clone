@@ -1,4 +1,5 @@
 import { ColumnContainer, ColumnTitle } from '../styles';
+import { AddNewItem } from './AddNewItem';
 import { Card } from './Card';
 
 type ColumnProp = {
@@ -12,6 +13,7 @@ export const Column = ({ text }: ColumnProp) => {
 			<Card text='App Architecture' />
 			<Card text='Learn Typescript' />
 			<Card text='Static Typing' />
+			<AddNewItem toggleButtonText='+ Add New Card' onAdd={console.log} dark />
 		</ColumnContainer>
 	);
 };
