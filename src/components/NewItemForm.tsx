@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useFocus } from '../utils/useFocus';
 import {
 	NewItemFormContainer,
 	NewItemButton,
@@ -14,10 +15,15 @@ type NewItemFormProps = {
 
 export const NewItemForm = ({ onAdd, onCancel }: NewItemFormProps) => {
 	const [text, setText] = useState('');
+	const inputRef = useFocus();
 
 	return (
 		<NewItemFormContainer>
-			<NewItemInput value={text} onChange={(e) => setText(e.target.value)} />
+			<NewItemInput
+				ref={inputRef}
+				value={text}
+				onChange={(e) => setText(e.target.value)}
+			/>
 			<ButtonContainer>
 				<NewItemButton onClick={() => onAdd(text)}>Create</NewItemButton>
 				<CancelButton onClick={() => onCancel()}>Cancel</CancelButton>
