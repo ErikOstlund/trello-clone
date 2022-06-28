@@ -22,6 +22,7 @@ export const AddNewItem = ({
 					onAdd(text);
 					setShowForm(false);
 				}}
+				onCancel={() => setShowForm(false)}
 			/>
 		);
 	}

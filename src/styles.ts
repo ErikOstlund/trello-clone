@@ -63,12 +63,28 @@ export const NewItemFormContainer = styled.div`
 	align-items: flex-start;
 `;
 
+export const ButtonContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
+`;
+
 export const NewItemButton = styled.button`
 	background-color: #5aac44;
 	border-radius: 3px;
 	border: none;
 	box-shadow: none;
 	color: #fff;
+	padding: 6px 12px;
+	text-align: center;
+`;
+
+export const CancelButton = styled.button`
+	background-color: lightgrey;
+	border-radius: 3px;
+	border: none;
+	box-shadow: none;
+	color: #000;
 	padding: 6px 12px;
 	text-align: center;
 `;
