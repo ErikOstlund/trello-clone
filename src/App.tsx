@@ -1,10 +1,11 @@
-import { AppContainer } from './styles';
-import { Column } from './components/Column';
-import { AddNewItem } from './components/AddNewItem';
-import { useAppState } from './state/AppStateContext';
+import { AppContainer } from "./styles";
+import { Column } from "./components/Column";
+import { AddNewItem } from "./components/AddNewItem";
+import { useAppState } from "./state/AppStateContext";
+import { addList } from "./state/actions";
 
 export const App = () => {
-	const { lists } = useAppState();
+	const { lists, dispatch } = useAppState();
 
 	return (
 		<AppContainer>
@@ -12,7 +13,10 @@ export const App = () => {
 				<Column key={list.id} id={list.id} text={list.text} />
 			))}
 
-			<AddNewItem toggleButtonText='+ Add New List' onAdd={console.log} />
+			<AddNewItem
+				toggleButtonText="+ Add New List"
+				onAdd={(text) => dispatch(addList(text))}
+			/>
 		</AppContainer>
 	);
 };
