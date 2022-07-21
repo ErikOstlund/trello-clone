@@ -1,4 +1,4 @@
-import React, { createContext, useContext, Dispatch, FC } from "react";
+import React, { createContext, useContext, Dispatch } from "react";
 import { appStateReducer, AppState, List, Task } from "./appStateReducer";
 import { Action } from "./actions";
 import { useImmerReducer } from "use-immer";
