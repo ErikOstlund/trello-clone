@@ -9,12 +9,13 @@ import { addTask, moveList } from "../state/actions";
 import { useItemDrag } from "../utils/useItemDrag";
 import { isHidden } from "../utils/isHidden";
 
-type ColumnProp = {
-	id: string;
+type ColumnProps = {
 	text: string;
+	id: string;
+	isPreview?: boolean;
 };
 
-export const Column = ({ text, id }: ColumnProp) => {
+export const Column = ({ text, id, isPreview }: ColumnProps) => {
 	const { getTasksByListId, dispatch, draggedItem } = useAppState();
 	const tasks = getTasksByListId(id);
 	const { drag } = useItemDrag({ type: "COLUMN", id, text });
@@ -38,7 +39,11 @@ export const Column = ({ text, id }: ColumnProp) => {
 	drag(drop(ref));
 
 	return (
-		<ColumnContainer ref={ref} isHidden={isHidden(draggedItem, "COLUMN", id)}>
+		<ColumnContainer
+			ref={ref}
+			isHidden={isHidden(draggedItem, "COLUMN", id, isPreview)}
+			isPreview={isPreview}
+		>
 			<ColumnTitle>{text}</ColumnTitle>
 
 			{tasks.map((task) => (
